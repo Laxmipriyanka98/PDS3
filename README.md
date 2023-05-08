@@ -4,22 +4,22 @@ import pandas as pd
 import os
 from nltk.tokenize import word_tokenize
 
-# Load the CSV file into a pandas DataFrame
+# Loading CSV file into a pandas DataFrame
 path=os.getcwd()
 print(path)
 
 df=pd.read_csv('C:/Users/priya/OneDrive/Desktop/Test Jupyter/Corona_NLP_test.csv')
 
 corpus = df['OriginalTweet']
-
 tokens = []
 
-# Iterate over each tweet in the corpus and tokenize it
+# Tokenize each tweet in the corpus by iterating over it
 for tweet in corpus:
-  # Tokenize the tweet using word_tokenize from nltk
+
+# Utilizing word_tokenize from nltk, tokenize the tweet.
   tweet_tokens = word_tokenize(tweet)
 
-# Add the tokens of the current tweet to the list
+# Tokens from the current tweet should be added to the list.
 tokens.extend(tweet_tokens)
 
 # Print the tokens
@@ -32,27 +32,27 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
-# Download NLTK stop words (only needed once)
+# NLTK stop words can be downloaded (one only).
 nltk.download('stopwords')
 
-# Load the CSV file into a pandas DataFrame
+# Fill a pandas DataFrame using the CSV file.
 df=pd.read_csv('C:/Users/priya/OneDrive/Desktop/Test Jupyter/Corona_NLP_test.csv')
 
-# Extract the "OriginalTweet" column as a text corpus
+# As a text corpus, extract the "OriginalTweet" column.
 corpus = df['OriginalTweet']
 
-# Initialize stop words from NLTK
+# initialize the NLTK stop words
 stop_words = set(stopwords.words('english'))
 
-# Initialize an empty list to store the tokens without stop words
+# Create a blank list at startup to store the tokens without stop words.
 filtered_tokens = []
 
-# Iterate over each tweet in the corpus and remove stop words
+# Remove stop words from each tweet in the corpus iteratively.
 for tweet in corpus:
-  # Tokenize the tweet using word_tokenize from NLTK
+  # Utilizing word_tokenize from NLTK, tokenize the tweet.
   tweet_tokens = word_tokenize(tweet)
 
-# Remove stop words from the current tweet's tokens
+# Remove stop words from the tokens in the current tweet.
 filtered_tokens.extend([token for token in tweet_tokens if token.lower() not in stop_words])
 
 # Print the filtered tokens
@@ -64,24 +64,24 @@ import pandas as pd
 from collections import Counter
 from nltk.tokenize import word_tokenize
 
-# Load the CSV file into a pandas DataFrame
+# Fill a pandas DataFrame using the CSV file.
 df=pd.read_csv('C:/Users/priya/OneDrive/Desktop/Test Jupyter/Corona_NLP_test.csv')
 
-# Extract the "OriginalTweet" column as a text corpus
+#  Create a text corpus from the "OriginalTweet" column.
 corpus = df['OriginalTweet']
 
-# Initialize an empty list to store the tokens
+# Create a blank list to hold the tokens.
 tokens = []
 
-# Iterate over each tweet in the corpus and tokenize it
+# Tokenize each tweet in the corpus by iterating over it
 for tweet in corpus:
-  # Tokenize the tweet using word_tokenize from NLTK
+  # Utilizing word_tokenize from NLTK, tokenize the tweet.
   tweet_tokens = word_tokenize(tweet)
 
-# Add the tokens of the current tweet to the list
+# Add the current tweet's tokens to the list.
 tokens.extend(tweet_tokens)
 
-# Count the word frequencies
+# Determine the word frequency.
 word_frequencies = Counter(tokens)
 
 # Print the word frequencies
@@ -95,11 +95,11 @@ import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 from nltk.tokenize import word_tokenize
 
-# Load the CSV file into a pandas DataFrame
+# Open a pandas DataFrame and load the CSV file.
 df=pd.read_csv('C:/Users/priya/OneDrive/Desktop/Test Jupyter/Corona_NLP_test.csv')
 
 
-# Extract the "OriginalTweet" column as a text corpus
+# Create a text corpus from the "OriginalTweet" column.
 corpus = df['OriginalTweet']
 
 # Concatenate all tweets into a single string
@@ -108,10 +108,10 @@ text = ' '.join(corpus)
 # Tokenize the text
 tokens = word_tokenize(text)
 
-# Join the tokens back into a single string
+# Concatenate the tokens into a single string.
 processed_text = ' '.join(tokens)
 
-# Create a word cloud
+# Build a word cloud
 wordcloud = WordCloud(width=800, height=400, background_color='pink').generate(processed_text)
 
 # Plot the word cloud
